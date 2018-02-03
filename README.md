@@ -4,7 +4,8 @@ Loading the ridership data into a PostgreSQL database
 ## Usage
 1. Clone this repo and `cd` into it.
 2. Copy the raw data file `passenger_census.csv` into the directory.
-3. `docker-compose up --build`. This will run everything. When it finishes you'll see
+3. Set the POSTGRES_PASSWORD host environment variable to a strong password.
+4. `docker-compose up --build`. This will run everything. When it finishes you'll see
 
     ```
     passenger_census_1  | PostgreSQL init process complete; ready for start up.
@@ -18,7 +19,7 @@ Loading the ridership data into a PostgreSQL database
 
     Press `CTL-C` to stop the container. Do *not* bring the network down yet!
 
-4. Copy the resulting SQL dump file out of the container.
+5. Copy the resulting SQL dump file out of the container.
 
     ```
     docker cp ingestridershipdata_passenger_census_1:/home/postgres/passenger_census.sql .
