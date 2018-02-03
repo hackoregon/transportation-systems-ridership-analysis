@@ -1,0 +1,11 @@
+version: '3.4'
+services:
+  passenger_census:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: docker.io/znmeb/passenger_census
+    environment:
+      - POSTGRES_PASSWORD
+    ports: 
+      - 5439:5432
