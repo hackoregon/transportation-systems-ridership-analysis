@@ -4,7 +4,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: docker.io/znmeb/passenger_census
+    image: passenger_census
     environment:
       - POSTGRES_PASSWORD
     ports: 
