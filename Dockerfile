@@ -6,9 +6,8 @@ RUN mkdir -p /docker-entrypoint-initdb.d/
 COPY ingest.sh /docker-entrypoint-initdb.d/
 RUN chmod +x /docker-entrypoint-initdb.d/ingest.sh
 
-# add a non-root user
-RUN useradd -c "Hack Oregon" --user-group --shell /bin/bash --create-home hacko
-RUN mkdir -p /home/hacko/
-COPY *sql /home/hacko/
-COPY passenger_census.csv /home/hacko/
-RUN chown -R hacko:hacko /home/hacko/
+# create a workspace for the 'postgres' Linux user
+RUN mkdir -p /home/postgres/
+COPY *sql /home/postgres/
+COPY passenger_census.csv /home/postgres/
+RUN chown -R postgres:postgres /home/postgres/

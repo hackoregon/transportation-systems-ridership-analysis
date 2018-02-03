@@ -19,7 +19,7 @@ CREATE TABLE passenger_census (
   y_coord real
 );
 
-\copy passenger_census from /home/hacko/passenger_census.csv with csv header
+\copy passenger_census from /home/postgres/passenger_census.csv with csv header
 
 -- create a geometry from the x and y values in SRID 2913
 ALTER TABLE passenger_census ADD COLUMN geom_2913 geometry;
