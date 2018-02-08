@@ -24,3 +24,9 @@ RUN chmod +x /docker-entrypoint-initdb.d/ingest.sh
 COPY *sql /home/postgres/
 COPY passenger_census.csv /home/postgres/
 RUN chown -R postgres:postgres /home/postgres/
+
+# change the port the server listens on
+ARG CONTAINER_PORT
+RUN echo $CONTAINER_PORT
+ENV PGPORT=$CONTAINER_PORT
+EXPOSE $CONTAINER_PORT

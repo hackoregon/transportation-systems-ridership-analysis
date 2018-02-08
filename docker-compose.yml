@@ -4,8 +4,11 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        - CONTAINER_PORT
     image: passenger_census
     environment:
       - POSTGRES_PASSWORD
+      - CONTAINER_PORT
     ports: 
-      - 5439:5432
+      - $HOST_PORT:$CONTAINER_PORT
