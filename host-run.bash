@@ -8,4 +8,4 @@ sleep 15
 docker-compose up 2>&1 | tee up.log
 
 echo "Copying the dump file out of the container"
-docker cp ingestridershipdata_passenger_census_1:/home/postgres/passenger_census.pgdump .
+docker cp ingestridershipdata_passenger_census_1:/home/postgres/passenger_census.backup .
