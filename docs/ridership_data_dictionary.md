@@ -31,3 +31,5 @@
     - X Coordinate based in State Plane NAD83 (2913)
 * Y_COORD
     - Y Coordinate based in State Plane NAD83 (2913)
+
+Reference for EPSG:2913: <https://epsg.io/2913>.
