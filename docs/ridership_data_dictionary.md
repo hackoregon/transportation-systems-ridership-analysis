@@ -32,4 +32,12 @@
 * Y_COORD
     - Y Coordinate based in State Plane NAD83 (2913)
 
+## Fields in the database
+The database is called `passenger_census`. It has a single table, also called `passenger_census`. The fields are the same as those in the original data file except
+
+1. All the names are in lower case, and
+2. Two columns have been added:
+    * epsg_srid (integer): the SRID of the data (2913)
+    * id (integer, primary key): a primary key for the table. Django requires one.
+
 Reference for EPSG:2913: <https://epsg.io/2913>.
