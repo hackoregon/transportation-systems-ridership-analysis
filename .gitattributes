@@ -1,8 +1,0 @@
-* text eol=lf
-docker-compose.yml text
-Dockerfile text
-ingest.psql text
-ingest.sh text
-LICENSE text
-passenger_census.csv text
-README.md text
