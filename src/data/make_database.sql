@@ -1,5 +1,17 @@
+-- create a fresh instance of the user
+DROP OWNED BY transportation-systems CASCADE;
+DROP ROLE IF EXISTS transportation-systems;
+CREATE USER transportation-systems WITH
+  ENCRYPTED PASSWORD
+  NOCREATEDB
+  NOCREATEROLE
+  NOSUPERUSER
+  NOREPLICATION
+;
+
+-- create a fresh database owned by the user
 DROP DATABASE IF EXISTS passenger_census;
-CREATE DATABASE passenger_census;
+CREATE DATABASE passenger_census WITH OWNER = transportation-systems;
 \connect passenger_census
 
 CREATE TABLE passenger_census (
