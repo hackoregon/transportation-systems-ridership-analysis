@@ -7,6 +7,8 @@
 
 echo "Creating the database"
 psql -f make_database.sql
-echo "Creating the database backup"
+echo "Creating the database backups"
 pg_dump --format=p --verbose --clean --create --if-exists --dbname=passenger_census \
   | gzip -c > ../../data/interim/passenger_census.sql.gz
+pg_dump --format=c --verbose --clean --create --if-exists --dbname=passenger_census \
+  > ../../data/interim/passenger_census.backup
