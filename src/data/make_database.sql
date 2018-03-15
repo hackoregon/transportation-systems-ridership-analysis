@@ -30,7 +30,7 @@ ALTER TABLE passenger_census OWNER "transportation-systems";
 
 \copy passenger_census from '../../data/raw/passenger_census.csv' with csv header
 
--- we don't have PostGIS so we just add a column with the SRID for consumers!
+-- we don't have PostGIS so we just add a column with the SRID so consumers know what they have!
 -- see ../../docs/ridership_data_dictionary.md
 ALTER TABLE passenger_census ADD COLUMN epsg_srid integer;
 UPDATE passenger_census
