@@ -26,7 +26,7 @@ CREATE TABLE passenger_census (
   x_coord double precision,
   y_coord double precision
 );
-ALTER TABLE passenger_census OWNER "transportation-systems";
+ALTER TABLE passenger_census OWNER TO "transportation-systems";
 
 \copy passenger_census from '../../data/raw/passenger_census.csv' with csv header
 
