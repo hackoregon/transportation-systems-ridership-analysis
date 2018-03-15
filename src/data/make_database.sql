@@ -1,8 +1,7 @@
 -- create a fresh instance of the user
-DROP OWNED BY transportation-systems CASCADE;
-DROP ROLE IF EXISTS transportation-systems;
-CREATE USER transportation-systems WITH
-  ENCRYPTED PASSWORD
+DROP OWNED BY "transportation-systems" CASCADE;
+DROP ROLE IF EXISTS "transportation-systems";
+CREATE USER "transportation-systems" WITH
   NOCREATEDB
   NOCREATEROLE
   NOSUPERUSER
@@ -11,7 +10,7 @@ CREATE USER transportation-systems WITH
 
 -- create a fresh database owned by the user
 DROP DATABASE IF EXISTS passenger_census;
-CREATE DATABASE passenger_census WITH OWNER = transportation-systems;
+CREATE DATABASE passenger_census WITH OWNER = "transportation-systems";
 \connect passenger_census
 
 CREATE TABLE passenger_census (
@@ -27,6 +26,7 @@ CREATE TABLE passenger_census (
   x_coord double precision,
   y_coord double precision
 );
+ALTER TABLE passenger_census OWNER "transportation-systems";
 
 \copy passenger_census from '../../data/raw/passenger_census.csv' with csv header
 
