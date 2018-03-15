@@ -1,4 +1,6 @@
 -- create a fresh instance of the user
+\connect postgres
+DROP DATABASE IF EXISTS passenger_census;
 DROP OWNED BY "transportation-systems" CASCADE;
 DROP ROLE IF EXISTS "transportation-systems";
 CREATE USER "transportation-systems" WITH
@@ -9,7 +11,6 @@ CREATE USER "transportation-systems" WITH
 ;
 
 -- create a fresh database owned by the user
-DROP DATABASE IF EXISTS passenger_census;
 CREATE DATABASE passenger_census WITH OWNER = "transportation-systems";
 \connect passenger_census
 
@@ -26,7 +27,7 @@ CREATE TABLE passenger_census (
   x_coord double precision,
   y_coord double precision
 );
-ALTER TABLE passenger_census OWNER "transportation-systems";
+ALTER TABLE passenger_census OWNER TO "transportation-systems";
 
 \copy passenger_census from '../../data/raw/passenger_census.csv' with csv header
 
